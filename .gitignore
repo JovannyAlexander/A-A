@@ -13,6 +13,7 @@
 # production / build
 /build
 /dist
+/.amplify-hosting
 
 # misc
 .DS_Store
