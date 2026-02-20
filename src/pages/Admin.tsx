@@ -1,5 +1,3 @@
-'use client'
-
 import { useEffect, useState } from 'react'
 import { Product } from '@/types/product'
 import { getProducts, addProduct, updateProduct, deleteProduct } from '@/lib/products'
@@ -22,50 +20,23 @@ export default function AdminPage() {
     setLoading(false)
   }, [])
 
-  const handleLoginSuccess = () => {
-    setAuth(true)
-  }
-
-  const handleLogout = () => {
-    logout()
-    setAuth(false)
-  }
-
-  const loadProducts = () => {
-    setProducts(getProducts())
-  }
-
-  const handleAdd = () => {
-    setEditingProduct(null)
-    setShowForm(true)
-  }
-
-  const handleEdit = (product: Product) => {
-    setEditingProduct(product)
-    setShowForm(true)
-  }
-
+  const handleLoginSuccess = () => setAuth(true)
+  const handleLogout = () => { logout(); setAuth(false) }
+  const loadProducts = () => setProducts(getProducts())
+  const handleAdd = () => { setEditingProduct(null); setShowForm(true) }
+  const handleEdit = (product: Product) => { setEditingProduct(product); setShowForm(true) }
   const handleSave = (data: Omit<Product, 'id' | 'createdAt'> | Product) => {
-    if (editingProduct) {
-      updateProduct(editingProduct.id, data)
-    } else {
-      addProduct(data as Omit<Product, 'id' | 'createdAt'>)
-    }
+    if (editingProduct) updateProduct(editingProduct.id, data)
+    else addProduct(data as Omit<Product, 'id' | 'createdAt'>)
     loadProducts()
     setShowForm(false)
     setEditingProduct(null)
   }
-
   const handleDelete = (id: string) => {
-    if (confirm('¿Eliminar este producto?')) {
-      deleteProduct(id)
-      loadProducts()
-    }
+    if (confirm('¿Eliminar este producto?')) { deleteProduct(id); loadProducts() }
   }
 
-  if (!auth) {
-    return <AdminLogin onSuccess={handleLoginSuccess} />
-  }
+  if (!auth) return <AdminLogin onSuccess={handleLoginSuccess} />
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-purple-50 via-pink-50 to-blue-50 py-8 sm:py-12 px-4">
@@ -79,20 +50,11 @@ export default function AdminPage() {
               </div>
               <div className="flex items-center gap-2">
                 {!showForm && (
-                  <button
-                    type="button"
-                    onClick={handleAdd}
-                    className="bg-white text-purple-600 px-5 py-2.5 rounded-xl font-semibold hover:bg-purple-50 transition shadow-lg flex items-center gap-2"
-                  >
+                  <button type="button" onClick={handleAdd} className="bg-white text-purple-600 px-5 py-2.5 rounded-xl font-semibold hover:bg-purple-50 transition shadow-lg flex items-center gap-2">
                     <FaPlus /> Agregar producto
                   </button>
                 )}
-                <button
-                  type="button"
-                  onClick={handleLogout}
-                  className="bg-white/20 hover:bg-white/30 text-white px-4 py-2.5 rounded-xl font-semibold transition flex items-center gap-2"
-                  title="Cerrar sesión"
-                >
+                <button type="button" onClick={handleLogout} className="bg-white/20 hover:bg-white/30 text-white px-4 py-2.5 rounded-xl font-semibold transition flex items-center gap-2" title="Cerrar sesión">
                   <FaSignOutAlt /> Salir
                 </button>
               </div>
@@ -110,9 +72,7 @@ export default function AdminPage() {
               <div className="text-center py-16">
                 <FaBoxOpen className="text-5xl text-gray-400 mx-auto mb-4" />
                 <p className="text-lg text-gray-600 mb-4">No hay productos</p>
-                <button type="button" onClick={handleAdd} className="bg-gradient-to-r from-purple-600 to-pink-600 text-white px-6 py-3 rounded-xl font-semibold">
-                  Agregar primer producto
-                </button>
+                <button type="button" onClick={handleAdd} className="bg-gradient-to-r from-purple-600 to-pink-600 text-white px-6 py-3 rounded-xl font-semibold">Agregar primer producto</button>
               </div>
             ) : (
               <AdminProductList products={products} onEdit={handleEdit} onDelete={handleDelete} />

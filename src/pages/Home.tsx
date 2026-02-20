@@ -1,5 +1,3 @@
-'use client'
-
 import { useEffect, useState } from 'react'
 import { Product } from '@/types/product'
 import { getProducts } from '@/lib/products'
@@ -20,11 +18,8 @@ export default function Home() {
   }, [])
 
   useEffect(() => {
-    if (selectedCategory === 'todos') {
-      setFilteredProducts(products)
-    } else {
-      setFilteredProducts(products.filter((p) => p.category === selectedCategory))
-    }
+    if (selectedCategory === 'todos') setFilteredProducts(products)
+    else setFilteredProducts(products.filter((p) => p.category === selectedCategory))
   }, [selectedCategory, products])
 
   const featured = products.filter((p) => p.featured)
@@ -36,9 +31,7 @@ export default function Home() {
         <section className="py-12 sm:py-16 px-4 w-full min-w-0">
           <div className="max-w-7xl mx-auto w-full min-w-0">
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-800 mb-6 sm:mb-8 text-center">
-              <span className="bg-gradient-to-r from-pink-500 to-purple-600 bg-clip-text text-transparent">
-                Productos Destacados
-              </span>
+              <span className="bg-gradient-to-r from-pink-500 to-purple-600 bg-clip-text text-transparent">Productos Destacados</span>
             </h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
               {featured.slice(0, 4).map((product) => (
@@ -51,9 +44,7 @@ export default function Home() {
       <section id="catalogo" className="py-12 sm:py-16 px-4 bg-white/50 w-full min-w-0">
         <div className="max-w-7xl mx-auto w-full min-w-0">
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-800 mb-6 sm:mb-8 text-center">
-            <span className="bg-gradient-to-r from-purple-500 to-pink-600 bg-clip-text text-transparent">
-              Catálogo Completo
-            </span>
+            <span className="bg-gradient-to-r from-purple-500 to-pink-600 bg-clip-text text-transparent">Catálogo Completo</span>
           </h2>
           <CategoryFilter selectedCategory={selectedCategory} onCategoryChange={setSelectedCategory} />
           {loading ? (
