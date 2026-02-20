@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 100" fill="none" aria-hidden="true">
+  <defs>
+    <linearGradient id="main-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ec4899"/>
+      <stop offset="50%" stop-color="#d946ef"/>
+      <stop offset="100%" stop-color="#7c3aed"/>
+    </linearGradient>
+    <linearGradient id="main-gold" x1="0%" y1="100%" x2="0%" y2="0%">
+      <stop offset="0%" stop-color="#78350f"/>
+      <stop offset="30%" stop-color="#b45309"/>
+      <stop offset="60%" stop-color="#fcd34d"/>
+      <stop offset="100%" stop-color="#fef9c3"/>
+    </linearGradient>
+    <linearGradient id="main-gem" x1="50%" y1="0%" x2="50%" y2="100%">
+      <stop offset="0%" stop-color="#fdf2f8"/>
+      <stop offset="40%" stop-color="#ec4899"/>
+      <stop offset="100%" stop-color="#9d174d"/>
+    </linearGradient>
+    <filter id="main-soft" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="2" stdDeviation="1" flood-color="#7c3aed" flood-opacity="0.22"/>
+    </filter>
+  </defs>
+  <!-- Base de la corona (banda) -->
+  <path d="M48 44 L48 40 L152 40 L152 44 L48 44 Z" fill="url(#main-gold)" stroke="url(#main-grad)" stroke-width="0.7"/>
+  <!-- 5 picos: izquierdo, medio-izq, centro (alto), medio-der, derecho -->
+  <path d="M48 40 L58 40 L53 28 L48 40 Z" fill="url(#main-gold)" stroke="url(#main-grad)" stroke-width="0.5"/>
+  <path d="M58 40 L78 40 L68 22 L58 40 Z" fill="url(#main-gold)" stroke="url(#main-grad)" stroke-width="0.5"/>
+  <path d="M78 40 L122 40 L100 12 L78 40 Z" fill="url(#main-gold)" stroke="url(#main-grad)" stroke-width="0.5"/>
+  <path d="M122 40 L142 40 L132 22 L122 40 Z" fill="url(#main-gold)" stroke="url(#main-grad)" stroke-width="0.5"/>
+  <path d="M142 40 L152 40 L147 28 L142 40 Z" fill="url(#main-gold)" stroke="url(#main-grad)" stroke-width="0.5"/>
+  <!-- Gemas: centro y laterales -->
+  <circle cx="100" cy="16" r="3.5" fill="url(#main-gem)"/>
+  <circle cx="68" cy="30" r="2" fill="url(#main-gem)"/>
+  <circle cx="132" cy="30" r="2" fill="url(#main-gem)"/>
+  <circle cx="53" cy="34" r="1.5" fill="url(#main-gem)" opacity="0.9"/>
+  <circle cx="147" cy="34" r="1.5" fill="url(#main-gem)" opacity="0.9"/>
+  <!-- A&A -->
+  <text x="100" y="82" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="38" font-weight="bold" letter-spacing="0.14em" fill="url(#main-grad)" filter="url(#main-soft)">A&amp;A</text>
+  <!-- Arco decorativo bajo el texto -->
+  <path d="M35 90 Q100 98 165 90" fill="none" stroke="url(#main-grad)" stroke-width="1" stroke-linecap="round" opacity="0.45"/>
+</svg>
