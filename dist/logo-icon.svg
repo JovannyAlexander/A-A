@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80" fill="none" aria-hidden="true">
+  <defs>
+    <linearGradient id="icon-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ec4899"/>
+      <stop offset="50%" stop-color="#d946ef"/>
+      <stop offset="100%" stop-color="#7c3aed"/>
+    </linearGradient>
+    <linearGradient id="icon-gold" x1="0%" y1="100%" x2="0%" y2="0%">
+      <stop offset="0%" stop-color="#92400e"/>
+      <stop offset="50%" stop-color="#f59e0b"/>
+      <stop offset="100%" stop-color="#fef3c7"/>
+    </linearGradient>
+    <linearGradient id="icon-gem" x1="50%" y1="0%" x2="50%" y2="100%">
+      <stop offset="0%" stop-color="#fce7f3"/>
+      <stop offset="100%" stop-color="#ec4899"/>
+    </linearGradient>
+    <filter id="icon-glow" x="-25%" y="-25%" width="150%" height="150%">
+      <feDropShadow dx="0" dy="1" stdDeviation="0.5" flood-color="#a855f7" flood-opacity="0.3"/>
+    </filter>
+  </defs>
+  <!-- Círculo de fondo sutil -->
+  <circle cx="40" cy="40" r="36" fill="none" stroke="url(#icon-grad)" stroke-width="1" opacity="0.4"/>
+  <!-- Corona pequeña: base -->
+  <path d="M22 38 L22 35 L58 35 L58 38 L22 38 Z" fill="url(#icon-gold)" stroke="url(#icon-grad)" stroke-width="0.5"/>
+  <!-- Picos de la corona -->
+  <path d="M22 35 L28 35 L25 28 L22 35 Z" fill="url(#icon-gold)" stroke="url(#icon-grad)" stroke-width="0.4"/>
+  <path d="M28 35 L38 35 L33 24 L28 35 Z" fill="url(#icon-gold)" stroke="url(#icon-grad)" stroke-width="0.4"/>
+  <path d="M38 35 L42 35 L40 18 L38 35 Z" fill="url(#icon-gold)" stroke="url(#icon-grad)" stroke-width="0.4"/>
+  <path d="M42 35 L52 35 L47 24 L42 35 Z" fill="url(#icon-gold)" stroke="url(#icon-grad)" stroke-width="0.4"/>
+  <path d="M52 35 L58 35 L55 28 L52 35 Z" fill="url(#icon-gold)" stroke="url(#icon-grad)" stroke-width="0.4"/>
+  <!-- Gema central -->
+  <circle cx="40" cy="20" r="2.2" fill="url(#icon-gem)"/>
+  <!-- A&A -->
+  <text x="40" y="60" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="22" font-weight="bold" letter-spacing="0.12em" fill="url(#icon-grad)" filter="url(#icon-glow)">A&amp;A</text>
+</svg>
